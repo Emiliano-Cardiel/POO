@@ -45,4 +45,14 @@ class Autos:
           conexion.commit() 
           return True  
         except:    
-          return False    
+          return False
+
+    @staticmethod
+    def buscar_autos(id):
+         try:
+              cursor.execute(
+                   "select * from autos where id=%s",
+                   (id,))
+              return cursor.fetchone()
+         except:
+              return []    

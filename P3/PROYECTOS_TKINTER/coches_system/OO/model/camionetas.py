@@ -45,6 +45,16 @@ class Camionetas:
           conexion.commit() 
           return True  
         except:    
-          return False   
+          return False
+
+    @staticmethod
+    def buscar_camionetas(id):
+         try:
+              cursor.execute(
+                   "select * from camionetas where id=%s",
+                   (id,))
+              return cursor.fetchone()
+         except:
+              return []    
         
 
